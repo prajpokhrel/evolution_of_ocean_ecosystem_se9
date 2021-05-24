@@ -41,7 +41,6 @@ class Creature extends Display {
             cohesion: 0.7
         };
 
-        // I gave these creatures name too, haha yes!
         this.maleNames = [
             'jack', 'luke', 'kent',
             'john', 'grey', 'aaron',

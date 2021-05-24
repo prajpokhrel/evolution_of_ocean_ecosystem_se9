@@ -57,7 +57,7 @@ class Ecosystem {
         let name = this.agents[type]
         this.groups[type].push(name.setPosition(x, y).setRadius(radius).build());
     }
-    
+
     /**
      * @metho addAgent
      * @param {BuildCreature} name

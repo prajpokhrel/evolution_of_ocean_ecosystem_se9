@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+        <title>Flocking Behavior with Obstacle Avoidance</title>
+    </head>
+    <body>
+
+        <canvas id="playground"></canvas>
+
+        <!-- Vector Library -->
+        <script src="../lib/Vector.js"></script>
+        <!-- Quad Tree Library -->
+        <script src="../lib/Circle.js"></script>
+        <script src="../lib/Rectangle.js"></script>
+        <script src="../lib/Point.js"></script>
+        <script src="../lib/QuadTree.js"></script>
+        <!-- Helper functions - can create new, or maybe use previously created one
+         it should be managed though-->
+        <script src="../evolution/js/helpers.js"></script>
+        <!-- Creature Class -->
+        <script src="./js/Creature.js"></script>
+        <!-- Steering Behavior | Reusing from Evolution Zone -->
+        <script src="../evolution/js/Steer.js"></script>
+        <!-- Bringing creatures to life -->
+        <script src="./js/index.js"></script>
+    </body>
+</html>

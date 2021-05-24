@@ -52,8 +52,39 @@ class Steer {
         }
     }
 
-    // PATH-FLOWING TOO
-    // QUEUE
+    // QUEUE - NOT IN USE
+    getNeighborAhead(entities) {
+        let maxQueueAhead = 500;
+        let maxQueueRadius = 500;
+        let res;
+        let qa = this.currentAgent.velocity.replica().normalize().multiply(maxQueueAhead);
+        let ahead = this.currentAgent.position.replica().add(qa);
+
+        for (let i = 0; i < entities.length; i++) {
+            let distance = Vector.distance(ahead, entities[i].position);
+            if (entities[i] !== this && distance <= maxQueueRadius) {
+                res = entities[i];
+                break;
+            }
+        }
+        return res;
+    }
+
+    queue(entities, maxQueueRadius = 500) {
+        let neighbor = this.getNeighborAhead(entities);
+        let brake = new Vector(0, 0);
+        let steeringForce = new Vector(0, 0);
+        let v = this.currentAgent.velocity.replica();
+        if (neighbor !== null) {
+            brake = steeringForce.replica().negativeVector().multiply(0.8);
+            v.negativeVector().normalize();
+            brake.add(v);
+            if (Vector.distance(this.currentAgent.position, neighbor.position) <= maxQueueRadius) {
+                this.currentAgent.velocity.multiply(0.3);
+            }
+        }
+        steeringForce.add(brake);
+    }
 
     /**
      * @method wander()
@@ -65,7 +96,6 @@ class Steer {
         let change = 0.1;
         this.wandertheta += randomFromRange(-change, change);
 
-        // Now we have to calculate the new location to steer towards on the wander circle
         let circleloc = this.currentAgent.velocity.replica();
         circleloc.normalize();
         circleloc.multiply(wanderD);
@@ -76,7 +106,7 @@ class Steer {
         let circleOffSet = new Vector(wanderR * Math.cos(this.wandertheta + h), wanderR * Math.sin(this.wandertheta + h));
         let target = Vector.add(circleloc, circleOffSet);
 
-        // SEEK (have to make the seek function generic)
+        // SEEK
         let desired = null;
         desired = Vector.subtract(target, this.currentAgent.position);
         desired.normalize();

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+        <link rel="stylesheet" href="css/layout.css" type="text/css" />
+
+
+        <title>Evolution of Ocean Ecosystem - Prajwal Pokhrel - SE9</title>
+    </head>
+
+    <body>
+        <div class="main-container">
+            <canvas id="ecosystem"></canvas>
+
+            <!-- Creature Statistics -->
+            <div id="creatureStatistics">
+                <p id="statistics"></p>
+            </div>
+<!--            This will be used in playground area on left side -->
+<!--            <div class="settingsToggle">-->
+<!--                <div class="burger-icon"></div>-->
+<!--                <div class="burger-icon"></div>-->
+<!--                <div class="burger-icon"></div>-->
+<!--            </div>-->
+
+        </div>
+
+        <div class="debug-container">
+            <div class="debug-left">
+                <h1>Control Panel</h1>
+            </div>
+            <div class="debug-right">
+                <label class="container">Debug Perception
+                    <input type="checkbox" id="debug">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Debug DNA
+                    <input type="checkbox" id="dnadebug">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Show Names
+                    <input type="checkbox" id="names">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Health Status
+                    <input type="checkbox" id="render_health">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+        <div class="control-panel">
+            <div class="control-panel-left">
+                <div class="flock-control">
+                    <input id="separate" type="range" min="-5.0" max="5.0" value="0.9" step="0.1" class="slider" id="myRange1"><br>
+                    <span class="flock-behavior">Separation</span>
+                </div>
+                <div class="flock-control">
+                    <input id="align" type="range" min="-5.0" max="5.0" value="0.7" step="0.1" class="slider" id="myRange2"><br>
+                    <span class="flock-behavior">Alignment</span>
+                </div>
+                <div class="flock-control">
+                    <input id="cohesion" type="range" min="-5.0" max="5.0" value="0.5" step="0.1" class="slider" id="myRange3"><br>
+                    <span class="flock-behavior">Cohesion</span>
+                </div>
+            </div>
+            <div class="control-panel-right">
+                <div class="items-container">
+                    <span>Add Creatures</span>
+                    <select id="addnew">
+                        <option value="CREATURE">Good Creature</option>
+                        <option value="PREDATOR">Predator</option>
+                        <option value="AVOIDER">Avoider</option>
+                        <option value="EATER">Eater</option>
+                    </select>
+                </div>
+                <div class="items-container">
+                    <span>Add Nutrition</span>
+                    <select id="food" name="food">
+                        <option value="au">Food</option>
+                        <option value="ca">Poison</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="analytics-container">-->
+<!--            <div class="analytics-heading">-->
+<!--                <h1>Real Time Analytics</h1>-->
+<!--            </div>-->
+<!--            <div class="analytics-data"></div>-->
+<!--        </div>-->
+
+        <script src="../lib/Vector.js"></script>
+        <script src="js/constants.js"></script>
+        <script src="js/helpers.js"></script>
+        <script src="js/Steer.js"></script>
+        <script src="js/Display.js"></script>
+        <script src="js/Creature.js"></script>
+        <script src="js/BuildCreature.js"></script>
+        <script src="js/Ecosystem.js"></script>
+        <script src="js/index.js"></script>
+
+    </body>
+
+</html>

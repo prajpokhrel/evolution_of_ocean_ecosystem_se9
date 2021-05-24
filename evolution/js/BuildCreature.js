@@ -126,18 +126,3 @@ let Eater = new BuildCreature('EATER')
     .setHealthReduce(0.001)
     .setCreatureColor([121, 75, 196])
     .setNutritionEffect([0.5, 0])
-
-
-/**
- * @class King
- * @extends Creature
- */
-let King = new BuildCreature('KING')
-    .setDNA([1, 1, 200, 200])
-    .setRadius(15)
-    .setMaximumRadius(20)
-    .setMaximumSpeed(3)
-    .setMaximumForce(0.05)
-    .setHealthReduce(0.000001)
-    .setCreatureColor([255, 255, 255])
-    .setNutritionEffect([0.5, 0])
