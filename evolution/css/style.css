@@ -163,6 +163,10 @@ body {
     align-items: center;
     /*background-color: salmon;*/
 }
+
+.items-container span {
+    font-size: 20px;
+}
 /* End New Control Panel */
 
 /* Custom Select */
