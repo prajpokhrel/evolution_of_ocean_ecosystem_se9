@@ -7,7 +7,7 @@ class MiniStar extends Star{
         };
         this.friction = 0.8;
         this.gravity = 0.1;
-        this.ttl = 200;
+        this.startFadeDuration = 200;
         this.opacity = 1;
     }
 
@@ -33,7 +33,7 @@ class MiniStar extends Star{
         }
         this.x += this.velocity.x;
         this.y += this.velocity.y;
-        this.ttl -= 1;
-        this.opacity -= 1 / this.ttl;
+        this.startFadeDuration -= 1;
+        this.opacity -= 1 / this.startFadeDuration;
     }
 }

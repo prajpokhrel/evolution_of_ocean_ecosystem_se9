@@ -24,29 +24,34 @@ class Star {
         ctx.restore();
     }
 
-    shatter() {
+    starSparkle() {
         this.radius -= 3;
         for (let i = 0; i < 8; i++) {
             miniStars.push(new MiniStar(this.x, this.y, 2));
         }
     }
 
-    update() {
-        this.draw();
-
+    collisionDetection() {
         // When ball hits bottom of the ground
         if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
             this.velocity.y = -this.velocity.y * this.friction;
-            this.shatter();
+            this.starSparkle();
         } else {
             this.velocity.y += this.gravity;
         }
 
         // When ball hits side of screen, bounce off
-        if (this.x + this.radius + this.velocity > canvas.width || this.x - this.radius <= 0) {
+        if (this.x + this.radius + this.velocity.x > canvas.width || this.x - this.radius <= 0) {
             this.velocity.x = -this.velocity.x * this.friction;
-            this.shatter();
+            this.starSparkle();
         }
+    }
+
+    update() {
+        this.draw();
+
+        this.collisionDetection();
+
         this.x += this.velocity.x;
         this.y += this.velocity.y;
     }

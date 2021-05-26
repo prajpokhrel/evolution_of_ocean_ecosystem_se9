@@ -76,7 +76,7 @@ function animate() {
 
     miniStars.forEach((miniStar, index) => {
         miniStar.update();
-        if (miniStar.ttl === 0) {
+        if (miniStar.startFadeDuration === 0) {
             miniStars.splice(index, 1);
         }
     });
