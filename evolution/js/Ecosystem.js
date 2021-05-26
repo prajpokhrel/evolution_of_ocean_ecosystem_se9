@@ -101,7 +101,7 @@ class Ecosystem {
         const cloneItSelf = config.cloneItSelf;
 
         if (!agents) return;
-        // PARSE FEAR ARRAY
+
         for (const i in config.fear) {
             fear.push([this.groups[i], config.fear[i][0], config.fear[i][1], config.fear[i][2]]);
         }
@@ -126,7 +126,7 @@ class Ecosystem {
                     }
                 }
 
-                // APPLY FEAR
+                // APPLY FEAR BEHAVIOR
                 for (let i = 0; i < behave.fear.length; i++) {
                     current.addFearBehavior.apply(current, behave.fear[i]);
                 }
@@ -147,7 +147,7 @@ class Ecosystem {
     batchUpdateCreatures(list, foodPoison, weight, callback) {
         for (let i = list.length - 1; i >= 0; i--) {
             list[i].update();
-            list[i].updateSteeringBehavior(flk_slider_separate.value, flk_slider_align.value, flk_slider_cohesion.value);
+            list[i].updateSteeringBehavior(slider_separate.value, slider_align.value, slider_cohesion.value);
             list[i].applySteeringBehavior(list);
             if (foodPoison[0] !== undefined && foodPoison[1] !== undefined) {
                 list[i].addFoodBehavior(foodPoison[0], foodPoison[1], weight);
@@ -156,7 +156,7 @@ class Ecosystem {
 
             callback && callback.call(list[i], list, i);
 
-            // Kill the agent
+            // Kill the creatures
             if (list[i].handleCreatureDeath()) {
                 const x = list[i].position.x;
                 const y = list[i].position.y;

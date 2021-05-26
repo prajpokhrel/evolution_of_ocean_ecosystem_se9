@@ -17,7 +17,7 @@ const FOOD = 'FOOD';
 const POISON = 'POISON';
 
 function init() {
-    if (typeof window.orientation !== 'undefined') { MAX_CREATURES = 200 }
+    // if (typeof window.orientation !== 'undefined') { MAX_CREATURES = 200 }
 
     const ecosystem = new Ecosystem();
 
@@ -43,15 +43,15 @@ function init() {
     });
 
     let debugAgent = null;
-    if (ENABLE_SUPER_DEBUG) {
-        canvas.addEventListener('mousedown', function (e) {
-            for (let i = 0; i < ecosystem.groups.CREATURE.length; i++) {
-                let agent = ecosystem.groups.CREATURE[i];
-                let d = getDistance(e.offsetX, e.offsetY, agent.position.x, agent.position.y);
-                if (d < agent.radius * 2) debugAgent = agent;
-            }
-        })
-    }
+    // if (ENABLE_SUPER_DEBUG) {
+    //     canvas.addEventListener('mousedown', function (e) {
+    //         for (let i = 0; i < ecosystem.groups.CREATURE.length; i++) {
+    //             let agent = ecosystem.groups.CREATURE[i];
+    //             let d = getDistance(e.offsetX, e.offsetY, agent.position.x, agent.position.y);
+    //             if (d < agent.radius * 2) debugAgent = agent;
+    //         }
+    //     })
+    // }
 
     // Manually Adding Creatures and FOODS
     let add = document.getElementById('addnew');

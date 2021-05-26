@@ -150,22 +150,23 @@ function renderItem(list, color, radius, rect) {
     }
 }
 
-let flk_slider_separate = document.getElementById('separate');
-let flk_slider_align = document.getElementById('align');
-let flk_slider_cohesion = document.getElementById('cohesion');
-let renderhealth_checkbox = document.getElementById('render_health');
+let slider_separate = document.getElementById('separate');
+let slider_align = document.getElementById('align');
+let slider_cohesion = document.getElementById('cohesion');
+let renderHealth_checkbox = document.getElementById('render_health');
 let debug_checkbox = document.getElementById('debug');
-let dnadebug_checkbox = document.getElementById('dnadebug');
+let DNADebug_checkbox = document.getElementById('dnadebug');
 let render_names = document.getElementById('names');
+
 
 function batchDisplayCreatures(list) {
     for (let i = 0; i < list.length; i++) {
         list[i].displayCreatures(ctx);
 
         // DEBUG
-        if (renderhealth_checkbox.checked) list[i].displayCreatureHealthStatus(ctx);
+        if (renderHealth_checkbox.checked) list[i].displayCreatureHealthStatus(ctx);
         if (debug_checkbox.checked) list[i].displayPerceptionDebug(ctx);
-        if (dnadebug_checkbox.checked) list[i].displayDNADebug(ctx);
+        if (DNADebug_checkbox.checked) list[i].displayDNADebug(ctx);
         if (render_names.checked) list[i].displayCreatureNames(ctx);
     }
 }

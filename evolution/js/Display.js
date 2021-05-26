@@ -41,7 +41,7 @@ class Display {
         ctx.fillRect(this.position.x - 10, this.position.y - 10, this.health * 20, 3);
         ctx.lineWidth = 0.3;
         ctx.strokeStyle = '#FFFFFF';
-        ctx.strokeRect(this.position.x - 10, this.position.y - 10, 1 * 20, 2);
+        ctx.strokeRect(this.position.x - 10, this.position.y - 10, 20, 2);
         ctx.restore();
     }
 
@@ -57,7 +57,7 @@ class Display {
         ctx.stroke();
         ctx.closePath();
         ctx.beginPath();
-        ctx.strokeStyle = '#FFAD1F';
+        ctx.strokeStyle = '#E0245E';
         ctx.arc(this.position.x, this.position.y, clamp(this.DNA[3], 0, 100), 0, TWO_PI);
         ctx.stroke();
         ctx.closePath();
@@ -80,7 +80,7 @@ class Display {
         ctx.stroke();
         ctx.closePath();
         ctx.beginPath();
-        ctx.strokeStyle = '#FFAD1F';
+        ctx.strokeStyle = '#E0245E';
         ctx.moveTo(0, 0);
         ctx.lineTo(0, -this.DNA[1] * 20);
         ctx.stroke();

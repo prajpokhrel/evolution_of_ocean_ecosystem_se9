@@ -54,6 +54,52 @@ body {
 
 /* SIDE NAVIGATION END */
 
+.legend-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.legend {
+    display: flex;
+}
+
+.common {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.legend-color-1 {
+    background-color: #1DA1F2;
+}
+
+.legend-color-2 {
+    background-color: #17BF63;
+}
+
+.legend-color-3 {
+    background-color: #DC004E;
+}
+
+.legend-color-4 {
+    background-color: #F45D22;
+}
+
+.legend-color-5 {
+    background-color: #794BC4;
+}
+
+.legend-color-6 {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.legend-color-7 {
+    background-color: #E0245E;
+}
+
 /* Control Panel Top */
 .debug-container {
     display: flex;
@@ -62,6 +108,7 @@ body {
 
 .debug-left {
     /*background-color: red;*/
+    display: flex;
     padding-left: 20px;
 }
 
@@ -100,6 +147,8 @@ body {
 .control-panel-right {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 30%;
     border-left: 2px solid #2196F3;
     /*background-color: green;*/
@@ -151,7 +200,7 @@ select {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: #E0245E;
     cursor: pointer;
 }
 
@@ -159,7 +208,7 @@ select {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: #E0245E;
     cursor: pointer;
 }
 /* End Custom Slider*/
@@ -194,6 +243,7 @@ select {
     height: 25px;
     width: 25px;
     background-color: #eee;
+    border: 1px solid #000000;
 }
 
 .container:hover input ~ .checkmark {
@@ -201,7 +251,8 @@ select {
 }
 
 .container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #E0245E;
+    border: none;
 }
 
 .checkmark:after {
@@ -226,3 +277,25 @@ select {
     transform: rotate(45deg);
 }
 /* End Custom Check Box */
+
+/* Custom Reset Button */
+.reset-button {
+    padding: 5px 20px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.reset-button:hover {background-color: #1DA1F2}
+
+.reset-button:active {
+    background-color: #1DA1F2;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
