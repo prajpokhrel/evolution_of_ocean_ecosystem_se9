@@ -32,7 +32,7 @@ class Star {
     }
 
     collisionDetection() {
-        // When ball hits bottom of the ground
+        // When ball hits bottom of the ground, show sparkle, reduce size
         if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
             this.velocity.y = -this.velocity.y * this.friction;
             this.starSparkle();

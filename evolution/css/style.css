@@ -1,14 +1,3 @@
-* {
-    font-family: Consolas, sans-serif;
-    user-select: none;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-}
-
-
 .main-container {
     position: relative;
 }
@@ -25,7 +14,6 @@ body {
     top: 20px;
     padding: 5px;
     color: #FFFFFF;
-    /*background-color: red;*/
 }
 
 #statistics {
@@ -53,7 +41,6 @@ body {
 }
 
 /* SIDE NAVIGATION END */
-
 .legend-container {
     display: flex;
     flex-direction: row;
@@ -107,7 +94,6 @@ body {
 }
 
 .debug-left {
-    /*background-color: red;*/
     display: flex;
     padding-left: 20px;
 }
@@ -116,29 +102,24 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    /*background-color: pink;*/
     padding-left: 20px;
 }
-
 /* End Control Panel Top */
 
 /* New Control Panel */
 .control-panel {
     display: flex;
-    /*background-color: yellow;*/
 }
 
 .control-panel-left {
     display: flex;
     width: 70%;
-    /*background-color: pink;*/
 }
 
 .flock-control {
     display: flex;
     width: 33.33%;
     padding: 20px 0 20px 0;
-    /*background-color: blue;*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -151,7 +132,6 @@ body {
     align-items: center;
     width: 30%;
     border-left: 2px solid #2196F3;
-    /*background-color: green;*/
 }
 
 .items-container {
@@ -161,7 +141,6 @@ body {
     padding: 5px 0 5px 0;
     justify-content: center;
     align-items: center;
-    /*background-color: salmon;*/
 }
 
 .items-container span {
@@ -282,24 +261,3 @@ select {
 }
 /* End Custom Check Box */
 
-/* Custom Reset Button */
-.reset-button {
-    padding: 5px 20px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.reset-button:hover {background-color: #1DA1F2}
-
-.reset-button:active {
-    background-color: #1DA1F2;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}

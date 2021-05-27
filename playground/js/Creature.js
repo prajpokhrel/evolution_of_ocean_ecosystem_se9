@@ -93,7 +93,6 @@ class Creature {
         ctx.fillStyle = this.color;
         ctx.translate(this.position.x, this.position.y);
         ctx.rotate(angle);
-        // Add TWO PI Constant as before and use here
         ctx.arc(0, 0, 4, 0, Math.PI * 2)
         ctx.fill();
         ctx.restore();
