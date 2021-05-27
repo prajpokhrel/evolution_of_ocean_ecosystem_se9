@@ -41,6 +41,7 @@ class Creature extends Display {
             cohesion: 0.7
         };
 
+        // name for male and female creatures
         this.maleNames = [
             'jack', 'luke', 'kent',
             'john', 'grey', 'aaron',
@@ -107,7 +108,7 @@ class Creature extends Display {
 
     /**
      * @method update()
-     *
+     * This method updates Velocity, Position and Acceleration of creatures
      */
     update() {
         this.velocity.add(this.acceleration);
@@ -123,11 +124,11 @@ class Creature extends Display {
     /**
      * @method applyForce()
      * @param {Number} force
-     *
+     * This method applies force to the acceleration.
+     * We could add mass here if we want "Acceleration = Force / Mass".
      */
     applyForce(force) {
-        // We could add mass here if we want Acceleration = Force / Mass
-        this.acceleration.add(force)
+        this.acceleration.add(force);
     }
 
     handleCreatureDeath() {
@@ -136,6 +137,7 @@ class Creature extends Display {
 
     /**
      * @method checkBorderLine()
+     * This methods checks for border line to keep all the creatures inside ecosystem.
      *
      */
     checkBorderLine() {
@@ -169,7 +171,9 @@ class Creature extends Display {
      * @param {Number} weight
      * @param {Number} perception
      * @param {Function} callback
-     *
+     * This method is used to add fear behavior to the creatures,
+     * which also can be used inversely. Good creatures and Avoiders will fear Predators and Eaters,
+     * whereas Predator fears with Eaters.
      */
     addFearBehavior(list, weight, perception, callback) {
         let record = Infinity;
@@ -198,6 +202,9 @@ class Creature extends Display {
      * @param {*} good
      * @param {*} bad
      * @param {*} weights
+     * This method is used to handle Food and Poison behavior. Depending upon the type
+     * of creature, Food and Poison increases or reduces health based on what
+     * creatures thinks nutrients is for them.
      *
      */
     addFoodBehavior(good, bad, weights) {
@@ -217,13 +224,15 @@ class Creature extends Display {
     /**
      * @method applySteeringBehavior()
      * @param {*} agents
+     * This methods applies flocking behavior to the creatures.
+     * To obtain this behavior three different algorithms - Separation,
+     * Alignment and Cohesion are utilized.
      *
      */
     applySteeringBehavior(agents) {
         let separation = this.steer.separate(agents);
         let alignment = this.steer.align(agents);
         let cohesion = this.steer.cohesion(agents);
-        // let wander = this.steer.wander();
 
         separation.multiply(this.steeringEffect.separate);
         alignment.multiply(this.steeringEffect.align);
@@ -231,7 +240,6 @@ class Creature extends Display {
         this.applyForce(separation);
         this.applyForce(alignment);
         this.applyForce(cohesion);
-        // this.applyForce(wander);
     }
 
     /**
@@ -239,6 +247,8 @@ class Creature extends Display {
      * @param {*} separate
      * @param {*} align
      * @param {*} cohesion
+     * This method will update the steering forces of the creatures.
+     * If changed, creatures will act differently.
      */
     updateSteeringBehavior(separate, align, cohesion) {
         this.steeringEffect = {
@@ -249,11 +259,13 @@ class Creature extends Display {
     }
 
     /**
-     * Eat Food
+     * Consume Nutrition
      * @param {Array} list
      * @param nutrition
      * @param {Number} perception
-     *
+     * This method handles food and poison eating. This also removes ate food and also
+     * updated heath value based on good and bad nutrition. After eating food, creatures will
+     * start to search for nearest food available.
      */
     consumeFood(list, nutrition, perception) {
         let record = Infinity;
@@ -285,7 +297,7 @@ class Creature extends Display {
     /**
      * @method clone()
      * @param {float} probability
-     *
+     * This method is used to return new Creatures.
      */
     clone(probability) {
         if (Math.random() < probability) {
@@ -298,9 +310,14 @@ class Creature extends Display {
     }
 
     /**
-     *
      * @param {Creature} agentA
      * @returns {Boolean}
+     * This method is used to check for reproduction eligibility to see
+     * if creatures can reproduce with each other. Three basic requirements
+     * have to be met inorder to reproduce -
+     * 1. Creatures should be of different gender
+     * 2. Should be mature and close enough to reproduce
+     * 3. Should be healthy
      */
     checkReproductionEligibility(agentA) {
         let isAdult = (agentA.radius + this.radius > 16);
@@ -311,8 +328,9 @@ class Creature extends Display {
     }
 
     /**
-     * @param {Array} boids
+     * @param {Array} boids [Boids are an artificial life program, which simulates the flocking behavior]
      * @param {Creature} agentA
+     * This method is used to give birth to off-springs after reproduction.
      */
     handleChildBirth(boids, agentA) {
         this.hasReproduced++;
@@ -331,7 +349,8 @@ class Creature extends Display {
     /**
      * @method reproduce()
      * @param {Array} boids
-     * Reproduction System
+     * This methods uses other methods to check for reproduction.
+     * This starts reproduction process.
      *
      */
     reproduce(boids) {

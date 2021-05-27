@@ -81,7 +81,7 @@ class BuildCreature {
 
 
 /**
- * @class Agent
+ * @class Agent: Good Creatures
  * @extends Creature
  */
 let Agent = new BuildCreature('CREATURE');

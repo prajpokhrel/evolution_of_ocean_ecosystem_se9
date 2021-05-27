@@ -1,5 +1,8 @@
 /**
  * @class Steer
+ * This class implements different AI algorithms - specifically
+ * Steering Behaviors to bring life like moment of creatures based on
+ * surrounding scenario.
  */
 class Steer {
 
@@ -11,7 +14,8 @@ class Steer {
     /**
      * @method seek()
      * @param {*} target
-     *
+     * This method implement seeking behavior, to seek different things such
+     * as Food, Poison or other creatures.
      */
     seek(target) {
         let desired = null;
@@ -34,7 +38,13 @@ class Steer {
         return steer;
     }
 
-
+    /**
+     * @method flee()
+     * @param {*} target
+     * @returns {Vector}
+     * This method implements obstacle avoidance and flees creatures
+     * avoiding particular target.
+     */
     flee(target) {
         let desired = null;
         const FLEE_RADIUS = 100;
@@ -88,7 +98,7 @@ class Steer {
 
     /**
      * @method wander()
-     *
+     * This method implements random steering behavior.
      */
     wander() {
         let wanderR = 25;
@@ -106,7 +116,6 @@ class Steer {
         let circleOffSet = new Vector(wanderR * Math.cos(this.wandertheta + h), wanderR * Math.sin(this.wandertheta + h));
         let target = Vector.add(circleloc, circleOffSet);
 
-        // SEEK
         let desired = null;
         desired = Vector.subtract(target, this.currentAgent.position);
         desired.normalize();
@@ -119,7 +128,8 @@ class Steer {
     /**
      * @method separate()
      * @param {Array} agents
-     *
+     * This method if combined with "Align" and "Cohesion", helps to
+     * achieve flocking behavior.
      */
     separate(agents) {
         let steering = this.currentAgent.radius * 4;
@@ -145,7 +155,8 @@ class Steer {
     /**
      * @method align()
      * @param {Array} agents
-     *
+     * This method if combined with "Separate" and "Cohesion", helps to
+     * achieve flocking behavior.
      */
     align(agents) {
         let neighbourhoodDistance = 50;
@@ -169,7 +180,8 @@ class Steer {
     /**
      * @method cohesion()
      * @param {Array} agents
-     *
+     * This method if combined with "Separate" and "Align", helps to
+     * achieve flocking behavior.
      */
     cohesion(agents) {
         let neighbourhoodDistance = 30;

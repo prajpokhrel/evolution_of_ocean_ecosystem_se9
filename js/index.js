@@ -12,7 +12,7 @@ addEventListener('resize', () => {
     init();
 });
 
-// Creating mountain range
+// Creating mountain ranges
 function createMountainRange(mountainAmount, height, color) {
     for (let i = 0; i < mountainAmount; i++) {
         const mountainWidth = canvas.width / mountainAmount;

@@ -142,7 +142,6 @@ function renderItem(list, color, radius, rect) {
         if (rect) {
             ctx.fillRect(list[i].position.x, list[i].position.y, radius * 2, radius * 2);
         } else {
-            // ctx.arc(list[i].pos.x, list[i].pos.y, (radius || 5), 0, Math.PI * 2);
             ctx.fillRect(list[i].position.x, list[i].position.y, radius * 2, radius * 2);
         }
         ctx.fill();
@@ -163,7 +162,7 @@ function batchDisplayCreatures(list) {
     for (let i = 0; i < list.length; i++) {
         list[i].displayCreatures(ctx);
 
-        // DEBUG
+        // Debug DNA, Perception, Health and Names
         if (renderHealth_checkbox.checked) list[i].displayCreatureHealthStatus(ctx);
         if (debug_checkbox.checked) list[i].displayPerceptionDebug(ctx);
         if (DNADebug_checkbox.checked) list[i].displayDNADebug(ctx);
@@ -171,10 +170,6 @@ function batchDisplayCreatures(list) {
     }
 }
 
-/**
- * @metod renderStats()
- * @param {*} data
- */
 let statistics = document.getElementById('statistics');
 
 function renderStats(data) {

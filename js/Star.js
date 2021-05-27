@@ -1,3 +1,6 @@
+/**
+ * This class is used to create Stars.
+ */
 class Star {
     constructor(x, y, radius, color) {
         this.x = x;

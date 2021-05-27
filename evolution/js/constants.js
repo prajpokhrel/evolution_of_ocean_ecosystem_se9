@@ -1,1 +1,1 @@
-// Constants will go here.
+// Not in use.

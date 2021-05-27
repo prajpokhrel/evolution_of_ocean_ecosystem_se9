@@ -1,3 +1,6 @@
+/**
+ * This class is used to create Mini-Stars after scattering.
+ */
 class MiniStar extends Star{
     constructor(x, y, radius, color) {
         super(x, y, radius, color);

@@ -1,4 +1,3 @@
-// Global
 let canvas = _('#ecosystem');
 let WIDTH = canvas.width = window.innerWidth;
 let HEIGHT = canvas.height = 600; // window.innerHeight
@@ -6,9 +5,7 @@ let ctx = canvas.getContext('2d');
 
 let MAX_CREATURES = 300;
 const REPRODUCTION_RATE = 0.5;
-const ENABLE_SUPER_DEBUG = true;
 
-// constants for flexibility
 const CREATURE = 'CREATURE';
 const PREDATOR = 'PREDATOR';
 const AVOIDER = 'AVOIDER';
@@ -17,7 +14,6 @@ const FOOD = 'FOOD';
 const POISON = 'POISON';
 
 function init() {
-    // if (typeof window.orientation !== 'undefined') { MAX_CREATURES = 200 }
 
     const ecosystem = new Ecosystem();
 
@@ -42,18 +38,7 @@ function init() {
         EATER: randomIntFromRange(1, 4),
     });
 
-    let debugAgent = null;
-    // if (ENABLE_SUPER_DEBUG) {
-    //     canvas.addEventListener('mousedown', function (e) {
-    //         for (let i = 0; i < ecosystem.groups.CREATURE.length; i++) {
-    //             let agent = ecosystem.groups.CREATURE[i];
-    //             let d = getDistance(e.offsetX, e.offsetY, agent.position.x, agent.position.y);
-    //             if (d < agent.radius * 2) debugAgent = agent;
-    //         }
-    //     })
-    // }
-
-    // Manually Adding Creatures and FOODS
+    // Manually Adding Creatures to ecosystem
     let add = document.getElementById('addnew');
     canvas.addEventListener('click', function (e) {
         ecosystem.add(add.value, e.offsetX, e.offsetY)
@@ -73,9 +58,9 @@ function init() {
     }
 
 
-    var lastFrame;
-    var fps;
-    //  ANIMATE LOOP
+    let lastFrame;
+    let fps;
+
     function animate() {
         const HALF_W = WIDTH / 2;
         const HALF_H = HEIGHT / 2;
@@ -85,7 +70,12 @@ function init() {
         ctx.fillStyle = grd;
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-
+        /**
+         * Creature: Good Creature
+         * They like food and dislike poison.
+         * They avoid Predators and Eaters.
+         * They can clone them self and reproduce.
+         */
         ecosystem.addBehavior({
             name: CREATURE,
             like: FOOD,
@@ -103,7 +93,12 @@ function init() {
             }
         });
 
-
+        /**
+         * Creature: Predator
+         * They seek and eat creatures.
+         * They like Poison and dislike Food.
+         * They are afraid of Eaters.
+         */
         ecosystem.addBehavior({
             name: PREDATOR,
             like: POISON,
@@ -119,7 +114,13 @@ function init() {
             },
         });
 
-
+        /**
+         * Creature: Avoider
+         * They like Food and dislike Poison.
+         * They are super fast.
+         * They avoid all other creatures.
+         * They are somehow responsible to create food scarcity.
+         */
         ecosystem.addBehavior({
             name: AVOIDER,
             like: FOOD,
@@ -134,7 +135,12 @@ function init() {
             },
         });
 
-
+        /**
+         * Creature: Eater
+         * They like poison and leaves Food behind.
+         * They seek good creatures, predators, avoiders and eat them.
+         * They are smart and powerful creature.
+         */
         ecosystem.addBehavior({
             name: EATER,
             like: POISON,
@@ -164,7 +170,7 @@ function init() {
             }
         });
 
-        // UPDATE & RENDER
+        // update and render ecosystem.
         ecosystem.render();
         ecosystem.update();
         renderItem(ecosystem.entities.FOOD, '#FFFFFF', 1, true);
@@ -172,11 +178,6 @@ function init() {
 
         populationConstraints();
 
-        if (debugAgent && ENABLE_SUPER_DEBUG) {
-            debugAgent.displayCreatureHealthStatus(ctx);
-            debugAgent.displayDNADebug(ctx);
-            debugAgent.displayPerceptionDebug(ctx);
-        }
 
         requestAnimationFrame(animate);
         if (!lastFrame) {
@@ -191,7 +192,7 @@ function init() {
     animate();
 
 
-    // Statistics
+    // Creatures, Food and Poison Statistics
     window.setInterval(function () {
         renderStats({
             'Good Creatures': ecosystem.groups.CREATURE.length,

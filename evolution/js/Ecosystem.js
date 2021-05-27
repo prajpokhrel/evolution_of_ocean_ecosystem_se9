@@ -1,5 +1,7 @@
 /**
  * @class Ecosystem
+ * This class is used to set up ecosystem. Handling initial population,
+ * adding creatures, foods, add different behaviors, and update creatures.
  */
 class Ecosystem {
 
@@ -13,6 +15,7 @@ class Ecosystem {
     /**
      * @method addEntities
      * @param {Object} names
+     * This method helps to add Food and Poison to entities object.
      */
     addEntities(names) {
         for (const i in names) {
@@ -23,7 +26,7 @@ class Ecosystem {
     /**
      * @method registerAgents
      * @param {Object} agents
-     *
+     * The agents object is a object of Creature constructor.
      */
     registerAgents(agents) {
         this.agents = agents;
@@ -35,6 +38,7 @@ class Ecosystem {
     /**
      * @method initialPopulation
      * @param {Object} init
+     * This help to define initial population of the ecosystem.
      */
     initialPopulation(init) {
         this.initPopulation = init;
@@ -51,6 +55,7 @@ class Ecosystem {
      * @param {Number} x
      * @param {Number} y
      * @param {Number} radius
+     * This method helps to add Creatures to groups object.
      *
      */
     add(type, x, y, radius = 5) {
@@ -63,7 +68,7 @@ class Ecosystem {
      * @param {BuildCreature} name
      * @param {Array} list
      * @param {Number} max
-     *
+     * This method helps to add Creatures to the list in random position
      */
     addAgent(name, list, max) {
         for (let i = 0; i < max; i++) {
@@ -91,6 +96,9 @@ class Ecosystem {
      * @param {Number} config.cloneItSelf
      * @param {Object} config.fear
      * @param {Function} config.callback
+     * This method is used to set different behaviors to the Creatures
+     * based on which they react differently on ecosystem.
+     *
      */
     addBehavior(config) {
         const agents = this.groups[config.name];
@@ -110,7 +118,7 @@ class Ecosystem {
 
     /**
      * @method update
-     *
+     * This methods helps to update all the behaviors
      */
     update() {
         for (const a in this.behaviors) {
@@ -118,7 +126,6 @@ class Ecosystem {
             this.batchUpdateCreatures(behave.agents, behave.foodPoison, behave.likeDislikeWeight, (list, i) => {
                 let current = list[i];
 
-                // CLONE
                 if (behave.cloneItSelf) {
                     let child = list[i].clone(behave.cloneItSelf);
                     if (child !== null) {
@@ -126,7 +133,6 @@ class Ecosystem {
                     }
                 }
 
-                // APPLY FEAR BEHAVIOR
                 for (let i = 0; i < behave.fear.length; i++) {
                     current.addFearBehavior.apply(current, behave.fear[i]);
                 }
@@ -143,6 +149,7 @@ class Ecosystem {
      * @param {Array} foodPoison
      * @param {Number} weight
      * @param {Function} callback
+     * This method is used to update creatures
      */
     batchUpdateCreatures(list, foodPoison, weight, callback) {
         for (let i = list.length - 1; i >= 0; i--) {
@@ -169,6 +176,7 @@ class Ecosystem {
 
     /**
      * @method render
+     * This method is used to display creatures
      */
     render() {
         for (const i in this.groups) {
