@@ -3,7 +3,7 @@ My project is based on `Complex System` (existing in nature i.e. Ecosystem) and 
 to navigate around the ecosystem in a life-like and improvisational manner, mainly known as **Steering Behaviors**). 
 
 This project is a demonstration of `Steering Behaviors`, `Genetic Algorithms`, and `mutations`, the goal is to achieve and simulate
-different biological creatures to see how they react in complex environment. 
+different biological creatures to see how they react in complex environment. This also tries to replicate Darwin's theory of Natural Selection - Survival of the fittest.
 
 These creatures are based on [Craig Reynold's](https://www.red3d.com/cwr/index.html) - [Steering Behaviors](https://www.red3d.com/cwr/steer/gdc99/) and
 [Flocking System](https://www.red3d.com/cwr/boids/).
