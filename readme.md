@@ -75,11 +75,11 @@ It's the heart class of the project. This class handles all the logic for the up
 will be provided with some essential traits like health, radius, maximumSpeed, maximumForce, nutritionEffects and so on.
 
 **Some important methods in the Creature Class:**
-    * `applySteeringBehavior()`: This method applies the flocking behavior by combining different steering behaviors.
-    * `addFearBehavior()`: This method defines the fear behavior which also can be used inversely.
-    * `addFoodBehavior()`: This method applies the force which returns from **consumeFood()** method.
-    * `consumeFood()`: This method helps creatures to seek nearby food.
-    * `reproduce()`: This method handles Reproduction. This will checks for male and female agents, if they are eligible for
+   * `applySteeringBehavior()`: This method applies the flocking behavior by combining different steering behaviors.
+   * `addFearBehavior()`: This method defines the fear behavior which also can be used inversely.
+   * `addFoodBehavior()`: This method applies the force which returns from **consumeFood()** method.
+   * `consumeFood()`: This method helps creatures to seek nearby food.
+   * `reproduce()`: This method handles Reproduction. This will checks for male and female agents, if they are eligible for
 reproduction or not and if they are, they can reproduce with their specific DNA and creates a small creature based on their DNA 
 data and with some mutation.
 
@@ -96,11 +96,12 @@ life like behaviors.
 
 # Debug Mode
 This may seem a little bit confusing. There are three debugging mode currently available. They are discussed below:
-    * `Debug DNA`: We can view creatures DNA weights. Red line represents, how attracted are creatures to poison, and green 
+    
+   * `Debug DNA`: We can view creatures DNA weights. Red line represents, how attracted are creatures to poison, and green 
     line represents how attracted are creatures to Food.
-    * `Debug Perception`: There are two types of perception that the creatures have. Green circle
+   * `Debug Perception`: There are two types of perception that the creatures have. Green circle
     for how close it can perceive Food/other creatures and red circle for how close it can perceive poison/bad creatures.  
-    * `Display Health Status`: You can also see the health status of all the creatures.
+   * `Display Health Status`: You can also see the health status of all the creatures.
 
 ## Enjoy Watching them all day. 
 
