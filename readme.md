@@ -63,6 +63,8 @@ Also, They leave food behind as a trap.
 Due to their fast velocities, they reach to food quickly, eats them and creates food scarcity to other creatures.
 
 **These creatures also have cute names based on their gender.**
+**Select creatures you want to add and click on screen to add them. Ecosystem manages all creatures by itself, not required to
+add creatures, but you can play around if you like.**
 
 ## BuildCreature Class
 To create different variety of creatures with different traits, I have used **"Builder Pattern"**. This class implements Builder Pattern.
