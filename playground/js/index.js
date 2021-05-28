@@ -5,7 +5,7 @@ let mouseY;
 const OBSTACLE_RADIUS = 100;
 const creatureColor = ['#1DA1F2', '#F45D22', '#E0245E', '#794BC4', '#FFAD1F', '#17BF63'];
 let showTrails = true;
-const totalCreatures = 200;
+const totalCreatures = 100;
 
 window.onload = function() {
     const canvas = document.querySelector('#playground');

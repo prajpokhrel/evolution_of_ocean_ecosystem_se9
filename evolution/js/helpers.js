@@ -149,13 +149,13 @@ function renderItem(list, color, radius, rect) {
     }
 }
 
-let slider_separate = document.getElementById('separate');
-let slider_align = document.getElementById('align');
-let slider_cohesion = document.getElementById('cohesion');
-let renderHealth_checkbox = document.getElementById('render_health');
-let debug_checkbox = document.getElementById('debug');
-let DNADebug_checkbox = document.getElementById('dnadebug');
-let render_names = document.getElementById('names');
+let slider_separate = _('#separate');
+let slider_align = _('#align');
+let slider_cohesion = _('#cohesion');
+let renderHealth_checkbox = _('#render_health');
+let debug_checkbox = _('#debug');
+let DNADebug_checkbox = _('#dnadebug');
+let render_names = _('#names');
 
 
 function batchDisplayCreatures(list) {
@@ -170,7 +170,7 @@ function batchDisplayCreatures(list) {
     }
 }
 
-let statistics = document.getElementById('statistics');
+let statistics = _('#statistics');
 
 function renderStats(data) {
     let creatureStatistics = '';

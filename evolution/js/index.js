@@ -74,7 +74,7 @@ function init() {
          * Creature: Good Creature
          * They like food and dislike poison.
          * They avoid Predators and Eaters.
-         * They can clone them self and reproduce.
+         * They can clone themselves and reproduce.
          */
         ecosystem.addBehavior({
             name: CREATURE,
